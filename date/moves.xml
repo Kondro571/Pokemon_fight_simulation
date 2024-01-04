@@ -1,0 +1,203 @@
+<moves>
+    <move>
+        <name>Tackle</name>
+        <type>Normal</type>
+        <category>Physical</category>
+        <power>40</power>
+        <accuracy>100</accuracy>
+        <pp>35</pp>
+    </move>
+    <move>
+        <name>Hydro Pump</name>
+        <type>Water</type>
+        <category>Special</category>
+        <power>110</power>
+        <accuracy>80</accuracy>
+        <pp>10</pp>
+    </move>
+    <move>
+        <name>Sludge Bomb</name>
+        <type>Poison</type>
+        <category>Special</category>
+        <power>90</power>
+        <accuracy>100</accuracy>
+        <pp>15</pp>
+    </move>
+    <move>
+        <name>Vine Whip</name>
+        <type>Grass</type>
+        <category>Physical</category>
+        <power>45</power>
+        <accuracy>100</accuracy>
+        <pp>25</pp>
+    </move>
+    <move>
+        <name>Sleep Powder</name>
+        <type>Grass</type>
+        <category>Status</category>
+        <power>0</power>
+        <accuracy>75</accuracy>
+        <pp>15</pp>
+    </move>
+    <move>
+        <name>Ember</name>
+        <type>Fire</type>
+        <category>Special</category>
+        <power>40</power>
+        <accuracy>100</accuracy>
+        <pp>25</pp>
+    </move>
+    <move>
+        <name>Dragon Claw</name>
+        <type>Dragon</type>
+        <category>Physical</category>
+        <power>80</power>
+        <accuracy>100</accuracy>
+        <pp>15</pp>
+    </move>
+    <move>
+        <name>Flamethrower</name>
+        <type>Fire</type>
+        <category>Special</category>
+        <power>90</power>
+        <accuracy>100</accuracy>
+        <pp>15</pp>
+    </move>
+    <move>
+        <name>Air Slash</name>
+        <type>Flying</type>
+        <category>Special</category>
+        <power>75</power>
+        <accuracy>95</accuracy>
+        <pp>20</pp>
+    </move>
+    <move>
+        <name>Scratch</name>
+        <type>Normal</type>
+        <category>Physical</category>
+        <power>40</power>
+        <accuracy>100</accuracy>
+        <pp>35</pp>
+    </move>
+    <move>
+        <name>Bite</name>
+        <type>Dark</type>
+        <category>Physical</category>
+        <power>60</power>
+        <accuracy>100</accuracy>
+        <pp>25</pp>
+    </move>
+    <move>
+        <name>Ice Beam</name>
+        <type>Ice</type>
+        <category>Special</category>
+        <power>90</power>
+        <accuracy>100</accuracy>
+        <pp>15</pp>
+    </move>
+    <move>
+        <name>Confusion</name>
+        <type>Psychic</type>
+        <category>Special</category>
+        <power>50</power>
+        <accuracy>100</accuracy>
+        <pp>25</pp>
+    </move>
+    <move>
+        <name>Psybeam</name>
+        <type>Psychic</type>
+        <category>Special</category>
+        <power>65</power>
+        <accuracy>100</accuracy>
+        <pp>20</pp>
+    </move>
+    <move>
+        <name>Focus Blast</name>
+        <type>Fighting</type>
+        <category>Special</category>
+        <power>120</power>
+        <accuracy>70</accuracy>
+        <pp>5</pp>
+    </move>
+    <move>
+        <name>Shadow Ball</name>
+        <type>Ghost</type>
+        <category>Special</category>
+        <power>80</power>
+        <accuracy>100</accuracy>
+        <pp>15</pp>
+    </move>
+    <move>
+        <name>Karate Chop</name>
+        <type>Fighting</type>
+        <category>Physical</category>
+        <power>50</power>
+        <accuracy>100</accuracy>
+        <pp>25</pp>
+    </move>
+    <move>
+        <name>Dynamic Punch</name>
+        <type>Fighting</type>
+        <category>Physical</category>
+        <power>100</power>
+        <accuracy>50</accuracy>
+        <pp>5</pp>
+    </move>
+    <move>
+        <name>Earthquake</name>
+        <type>Ground</type>
+        <category>Physical</category>
+        <power>100</power>
+        <accuracy>100</accuracy>
+        <pp>10</pp>
+    </move>
+    <move>
+        <name>Stone Edge</name>
+        <type>Rock</type>
+        <category>Physical</category>
+        <power>100</power>
+        <accuracy>80</accuracy>
+        <pp>10</pp>
+    </move>
+    <move>
+        <name>Extreme Speed</name>
+        <type>Normal</type>
+        <category>Physical</category>
+        <power>80</power>
+        <accuracy>100</accuracy>
+        <pp>5</pp>
+    </move>
+    <move>
+        <name>Dragon Pulse</name>
+        <type>Dragon</type>
+        <category>Special</category>
+        <power>85</power>
+        <accuracy>100</accuracy>
+        <pp>10</pp>
+    </move>
+    <move>
+        <name>Close Combat</name>
+        <type>Fighting</type>
+        <category>Physical</category>
+        <power>120</power>
+        <accuracy>100</accuracy>
+        <pp>5</pp>
+    </move>
+    <move>
+        <name>Wild Charge</name>
+        <type>Electric</type>
+        <category>Physical</category>
+        <power>90</power>
+        <accuracy>100</accuracy>
+        <pp>15</pp>
+    </move>
+    <move>
+        <name>Dark Pulse</name>
+        <type>Dark</type>
+        <category>Special</category>
+        <power>80</power>
+        <accuracy>100</accuracy>
+        <pp>15</pp>
+    </move>
+    <!-- Dodaj więcej ruchów według potrzeb -->
+</moves>

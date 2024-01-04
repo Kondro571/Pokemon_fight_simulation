@@ -1,0 +1,162 @@
+<pokemons>
+    <pokemon>
+        <name>Venusaur</name>
+        <level>100</level>
+        <type1>Grass</type1>
+        <type2>Poison</type2>
+        <hp>80</hp>
+        <attack>82</attack>
+        <defense>83</defense>
+        <sp_attack>100</sp_attack>
+        <sp_defense>100</sp_defense>
+        <speed>80</speed>
+        <image>003.png</image>
+        <b_image>003b.png</b_image>
+        <move1>Tackle</move1>
+        <move2>Sludge Bomb</move2>
+        <move3>Vine Whip</move3>
+        <move4>Sleep Powder</move4>
+    </pokemon>
+
+    <pokemon>
+        <name>Charizard</name>
+        <level>100</level>
+        <type1>Fire</type1>
+        <type2>Flying</type2>
+        <hp>78</hp>
+        <attack>84</attack>
+        <defense>78</defense>
+        <sp_attack>109</sp_attack>
+        <sp_defense>85</sp_defense>
+        <speed>100</speed>
+        <image>006.png</image>
+        <b_image>006b.png</b_image>
+        <move1>Ember</move1>
+        <move2>Dragon Claw</move2>
+        <move3>Flamethrower</move3>
+        <move4>Air Slash</move4>
+    </pokemon>
+
+    <!-- Dodaj więcej Pokemonów według potrzeb -->
+
+    <pokemon>
+        <name>Blastoise</name>
+        <level>100</level>
+        <type1>Water</type1>
+        <type2></type2>
+        <hp>79</hp>
+        <attack>83</attack>
+        <defense>100</defense>
+        <sp_attack>85</sp_attack>
+        <sp_defense>105</sp_defense>
+        <speed>78</speed>
+        <image>009.png</image>
+        <b_image>009b.png</b_image>
+        <move1>Tackle</move1>
+        <move2>Hydro Pump</move2>
+        <move3>Bite</move3>
+        <move4>Ice Beam</move4>
+    </pokemon>
+
+    <pokemon>
+        <name>Alakazam</name>
+        <level>100</level>
+        <type1>Psychic</type1>
+        <type2></type2>
+        <hp>55</hp>
+        <attack>50</attack>
+        <defense>45</defense>
+        <sp_attack>135</sp_attack>
+        <sp_defense>85</sp_defense>
+        <speed>120</speed>
+        <image>065.png</image>
+        <b_image>065b.png</b_image>
+        <move1>Confusion</move1>
+        <move2>Psybeam</move2>
+        <move3>Shadow Ball</move3>
+        <move4>Focus Blast</move4>
+    </pokemon>
+
+    <!-- Dodaj więcej Pokemonów według potrzeb -->
+
+    <pokemon>
+        <name>Machamp</name>
+        <level>100</level>
+        <type1>Fighting</type1>
+        <type2></type2>
+        <hp>90</hp>
+        <attack>130</attack>
+        <defense>80</defense>
+        <sp_attack>65</sp_attack>
+        <sp_defense>85</sp_defense>
+        <speed>55</speed>
+        <image>068.png</image>
+        <b_image>068b.png</b_image>
+        <move1>Karate Chop</move1>
+        <move2>Dynamic Punch</move2>
+        <move3>Earthquake</move3>
+        <move4>Stone Edge</move4>
+    </pokemon>
+
+    <pokemon>
+        <name>Gengar</name>
+        <level>100</level>
+        <type1>Ghost</type1>
+        <type2>Poison</type2>
+        <hp>60</hp>
+        <attack>65</attack>
+        <defense>60</defense>
+        <sp_attack>130</sp_attack>
+        <sp_defense>75</sp_defense>
+        <speed>110</speed>
+        <image>094.png</image>
+        <b_image>094b.png</b_image>
+        <move1>Shadow Ball</move1>
+        <move2>Sludge Bomb</move2>
+        <move3>Focus Blast</move3>
+        <move4>Dark Pulse</move4>
+    </pokemon>
+
+    <!-- Dodaj więcej Pokemonów według potrzeb -->
+
+    <pokemon>
+        <name>Gyarados</name>
+        <level>100</level>
+        <type1>Water</type1>
+        <type2>Flying</type2>
+        <hp>95</hp>
+        <attack>125</attack>
+        <defense>79</defense>
+        <sp_attack>60</sp_attack>
+        <sp_defense>100</sp_defense>
+        <speed>81</speed>
+        <image>130.png</image>
+        <b_image>130b.png</b_image>
+        <move1>Bite</move1>
+        <move2>Hydro Pump</move2>
+        <move3>Dragon Pulse</move3>
+        <move4>Earthquake</move4>
+    </pokemon>
+
+    <pokemon>
+        <name>Arcanine</name>
+        <level>100</level>
+        <type1>Fire</type1>
+        <type2></type2>
+        <hp>90</hp>
+        <attack>110</attack>
+        <defense>80</defense>
+        <sp_attack>100</sp_attack>
+        <sp_defense>80</sp_defense>
+        <speed>95</speed>
+        <image>059.png</image>
+        <b_image>059b.png</b_image>
+        <move1>Flamethrower</move1>
+        <move2>Extreme Speed</move2>
+        <move3>Wild Charge</move3>
+        <move4>Close Combat</move4>
+    </pokemon>
+
+    <!-- Dodaj więcej Pokemonów według potrzeb -->
+
+</pokemons>

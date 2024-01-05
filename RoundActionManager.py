@@ -21,6 +21,7 @@ class RoundActionManager:
 
 
     def perform_switch_action(self, new_pokemon):
+        new_pokemon.del_damage(0)
         return (new_pokemon)
         
 

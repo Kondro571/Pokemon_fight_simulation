@@ -50,7 +50,7 @@ class Game():
         self.current_pokemon2=None
         self.attack_displayC=AttackDisplay(50,480,180,50,10)
         self.tean_display=TeamDisplay(480,420,150,50,10)
-        self.draw_team()
+        
         
         self.attacks_buttons=[]
         self.pokemon_buttons=[]
@@ -64,12 +64,13 @@ class Game():
         self.win = pygame.display.set_mode((800, 600))
         pygame.display.set_caption("Symulacja Walki Pokemonów")
         
-        # tworzenie healthbars
-        self.player1_pokemon_healh_bar = HealthBar(50,250,250,20)
-        self.player2_pokemon_healh_bar = HealthBar(400,25,250,20)
         
-        self.player1_pokemon_sprite = Sprite(100, 255,225,225)
-        self.player2_pokemon_sprite = Sprite(500, 50,255,255)
+        # tworzenie healthbars
+        #self.player1_pokemon_healh_bar = HealthBar(50,250,250,20)
+        #self.player2_pokemon_healh_bar = HealthBar(400,25,250,20)
+        
+        self.player1_pokemon_sprite = Sprite(self.win,100, 255,225,225)
+        self.player2_pokemon_sprite = Sprite(self.win,500, 50,255,255)
         
         # Inicjalizacja Pygame GUI
         self.gui_manager = pygame_gui.UIManager((800, 600))
@@ -81,6 +82,7 @@ class Game():
         
     
     def run(self):
+        self.draw_team()
         self.memento_display()
         self.screen_display()
         while True:
@@ -99,6 +101,7 @@ class Game():
                         self.screen_display()
                         
                     if self.restore_from_memento_button.rect.collidepoint(event.pos):
+                        self.win.blit(self.background_image,(0,0))
                         self.restore_from_memento()
                         self.screen_display()
                         
@@ -108,6 +111,7 @@ class Game():
                             selected_attack = button.user_data["move_name"]
                             move = self.get_move_from_name(selected_attack)
                             if move:
+                                self.win.blit(self.background_image,(0,0))
                                 self.attack_action(move)
                                 self.screen_display()
 
@@ -119,6 +123,7 @@ class Game():
                             selected_pokemon = button.text
                             pok = self.get_pokemon_from_name(selected_pokemon)
                             if pok:
+                                self.win.blit(self.background_image,(0,0))
                                 self.switch_action(pok)
                                 self.screen_display()
 
@@ -134,8 +139,8 @@ class Game():
 
     def screen_display(self):
         
-        self.win.blit(self.background_image,(0,0))
-        self.gui_manager.update(0)
+        self.current_pokemon1.del_damage(0)
+        self.current_pokemon2.del_damage(0)
         
         self.pokemon_buttons=self.tean_display.draw(self.gui_manager,self.player1_pokemon)
         if self.check_end():
@@ -144,34 +149,23 @@ class Game():
             
             
             if not self.current_pokemon2.alive:
-                self.current_pokemon2=self.choose_random_alive_pokemon(self.player2_pokemon)
+                pok=self.choose_random_alive_pokemon(self.player2_pokemon)
+                self.current_pokemon2=self.round_action_manager.perform_switch_action(pok)
+                
                 
             for button in self.attacks_buttons:
                 button.kill()
                 
-            self.player2_pokemon_sprite.draw(self.win,self.current_pokemon2.image)
+            self.player2_pokemon_sprite.draw(self.current_pokemon2.image)
+            
             if self.current_pokemon1.alive:
 
                 for button in self.pokemon_buttons:
                     button.kill()
                 self.attacks_buttons=self.attack_displayC.draw(self.gui_manager,self.current_pokemon1)
-                self.player1_pokemon_sprite.draw(self.win,self.current_pokemon1.b_image)
+                self.player1_pokemon_sprite.draw(self.current_pokemon1.b_image)
                 self.pokemon_buttons=self.tean_display.draw(self.gui_manager,self.player1_pokemon)
-                self.player1_pokemon_healh_bar.draw(self.win,self.current_pokemon1)
 
-
-
-
-            self.player2_pokemon_healh_bar.draw(self.win,self.current_pokemon2)
-
-            
-            
-            
-
-
-
-        #self.attacks_display()
-        #self.pokemon_team_display()
         
 
     def get_move_from_name(self,name):
@@ -235,18 +229,29 @@ class Game():
         self.restore_from_memento_button = (pygame_gui.elements.UIButton(relative_rect=button, text="load", manager=self.gui_manager))
    
     def draw_team(self):
+        self.healt_bars1=[]
+        self.healt_bars2=[]
+        
         self.player1_pokemon = [copy.deepcopy(pokemon) for pokemon in random.sample(self.pokemon, 6)]
-        self.current_pokemon1 = self.player1_pokemon[0]
+        for p in self.player1_pokemon:
+            self.healt_bars1.append(HealthBar(self.win,50,250,250,20,p))
+            
+        self.current_pokemon1 = self.round_action_manager.perform_switch_action(self.player1_pokemon[0])
+
 
         self.player2_pokemon = [copy.deepcopy(pokemon) for pokemon in random.sample(self.pokemon, 6)]
-        self.current_pokemon2 = self.player2_pokemon[0]
-        
+        for p in self.player2_pokemon:
+            self.healt_bars2.append(HealthBar(self.win,400,25,250,20,p))
+            
+        self.current_pokemon2 = self.round_action_manager.perform_switch_action(self.player2_pokemon[0])
+
     def create_memento(self):
         memento = Memento(self.turn, self.player1_pokemon,self.current_pokemon1, self.player2_pokemon,self.current_pokemon2)
         self.caretaker.add_state(memento)
         print("Zapisano stan walki!")
 
     def restore_from_memento(self):
+       
         if self.caretaker.has_states():
             memento = self.caretaker.get_last_state()
             self.turn = memento.get_turn()
@@ -254,6 +259,23 @@ class Game():
             self.player2_pokemon = memento.get_player2()
             self.current_pokemon1 = memento.get_pokemon1()
             self.current_pokemon2 = memento.get_pokemon2()
+            
+            self.healt_bars1.clear()
+            self.healt_bars2.clear()
+            
+            for p in self.player1_pokemon:
+                self.healt_bars1.append(HealthBar(self.win,50,250,250,20,p))
+           
+            for p in self.player2_pokemon:
+                self.healt_bars2.append(HealthBar(self.win,400,25,250,20,p))
+                
+            for pokemon in self.player1_pokemon:
+                if pokemon.name == self.current_pokemon1.name:
+                    self.current_pokemon1 = self.round_action_manager.perform_switch_action(pokemon)
+            for pokemon in self.player2_pokemon:
+                if pokemon.name == self.current_pokemon2.name:
+                    self.current_pokemon2 = self.round_action_manager.perform_switch_action(pokemon)
+            
             print("Przywrócono walkę!")
 
     def check_end(self):
@@ -264,6 +286,8 @@ class Game():
             self.win.blit(self.background_image,(0,0))
             for button in self.attacks_buttons:
                 button.kill()
+            for button in self.pokemon_buttons:
+                button.kill()
             
             self.game_end=True
             return False
@@ -272,6 +296,7 @@ class Game():
             self.win.blit(self.background_image,(0,0))
             for button in self.attacks_buttons:
                 button.kill()
+            
             self.game_end=True
             return False
         

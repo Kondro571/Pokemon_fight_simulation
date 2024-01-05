@@ -1,26 +1,33 @@
 import pygame
 import pygame_gui
+from models.pokemon import *
+#obserwator
 class HealthBar():
-    def __init__(self,x,y,width,height):
+    def __init__(self,win,x,y,width,height,pokemon):
         self.x=x
         self.y=y
+        self.win=win
         self.width=width
         self.height=height
+        self.pokemon=pokemon
+        self.pokemon.add_observer(self)
 
-    def draw(self,win,pokemon):
-        
-        #backgrounf for health bar
-        pygame.draw.rect(win, "black", (self.x-10, self.y-20, self.width+20, self.height+30))
-        
-        #pokemon name level
-        font=pygame.font.SysFont("comicsansms", 15)
-        text=font.render(f"{pokemon.name} lvl:{pokemon.level}", 1,(255,255,255))
-        win.blit(text, (self.x, self.y-22))
-        
-        #health bar
-        retio = pokemon.hp / pokemon.max_hp
-        pygame.draw.rect(win, "red", (self.x, self.y, self.width, self.height))
-        pygame.draw.rect(win, "green", (self.x, self.y, self.width * retio, self.height))
+    def draw(self,pokemon):
+        if isinstance(pokemon, Pokemon) and pokemon == self.pokemon:
+  
+            #backgrounf for health bar
+            pygame.draw.rect(self.win, "black", (self.x-10, self.y-20, self.width+20, self.height+30))
+            
+            #pokemon name level
+            font=pygame.font.SysFont("comicsansms", 15)
+            text=font.render(f"{pokemon.name} lvl:{pokemon.level}", 1,(255,255,255))
+            self.win.blit(text, (self.x, self.y-22))
+            
+            #health bar
+           
+            retio = pokemon.hp / pokemon.max_hp
+            pygame.draw.rect(self.win, "red", (self.x, self.y, self.width, self.height))
+            pygame.draw.rect(self.win, "green", (self.x, self.y, self.width * retio, self.height))
         
         # pygame.draw.rect(win, "red", (self.x, self.y, self.width, self.height))
         # previous_health = self.width * (pokemon.previous_hp / pokemon.max_hp)
@@ -38,19 +45,20 @@ class HealthBar():
         
         
 class Sprite():
-    def __init__(self,x,y,width,height):
+    def __init__(self,win,x,y,width,height):
+        self.win=win
         self.x=x
         self.y=y
         self.width=width
         self.height=height
 
         
-    def draw(self,win,image):
+    def draw(self,image):
         pokemon_image = pygame.image.load("image/sprites/"+image)  
         pokemon_image = pygame.transform.scale(pokemon_image, (self.width, self.height))
         pokemon_rect = pokemon_image.get_rect()
         pokemon_rect.topleft = (self.x, self.y)
-        win.blit(pokemon_image, pokemon_rect)
+        self.win.blit(pokemon_image, pokemon_rect)
         
 class AttackDisplay:
     def __init__(self,x,y,width,height,margin=10):
